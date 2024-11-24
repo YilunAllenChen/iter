@@ -1,4 +1,4 @@
-from typing import Any, Callable, Generator, Generic, Hashable, Iterable, List, Optional, Tuple, TypeVar
+from typing import Callable, Generic, Iterable, List, TypeVar
 
 
 T = TypeVar("T")
@@ -11,7 +11,6 @@ class Iter(Generic[T]):
         if not isinstance(payload, Iterable):
             raise TypeError("payload of type <{type(payload)}> is not iterable!")
         self._payload = payload
-
 
     def map(self, fn: Callable[[T], U]) -> "Iter[U]":
         return Iter(map(fn, self._payload))

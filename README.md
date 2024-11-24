@@ -1,5 +1,8 @@
 # iterr
 rust styled iterator in python
+- lazy evaluation
+- strongly typed
+- all native python, no dependency
 
 
 ```python
