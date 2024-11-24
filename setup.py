@@ -11,6 +11,7 @@ setup(
     url="https://github.com/YilunAllenChen/iter",
     packages=find_packages(),
     install_requires=[],  # List dependencies here
+    test_requires=["pytest"],
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
