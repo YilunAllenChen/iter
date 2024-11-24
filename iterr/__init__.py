@@ -1,4 +1,4 @@
-from typing import Callable, Generic, Iterable, List, TypeVar
+from typing import Callable, Generic, Iterable, List, Optional, TypeVar
 
 
 T = TypeVar("T")
@@ -17,6 +17,14 @@ class Iter(Generic[T]):
 
     def filter(self, fn: Callable[[T], bool]) -> "Iter[T]":
         return Iter(filter(fn, self._payload))
+
+    def filter_map(self, fn: Callable[[T], Optional[U]]) -> "Iter[U]":
+        def gen():
+            for item in self._payload:
+                if (res := fn(item)) is not None:
+                    yield res
+
+        return Iter(gen())
 
     def bind(self, fn: Callable[[T], Iterable[U]]) -> "Iter[U]":
         def _bind(fn: Callable[[T], Iterable[U]]) -> Iterable[U]:
