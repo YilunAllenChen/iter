@@ -4,6 +4,13 @@ rust styled iterator in python
 - strongly typed
 - all native python, no dependency
 
+# Why?
+
+Iterator pattern makes making data processing pipelines declarative and easy to follow.
+
+It also discourages side effects, which can correlate to higher bug rates.
+
+# Example
 
 ```python
 from iterr import Iter
@@ -40,6 +47,5 @@ this prints
 18
 26
 ```
-
 
 note: because of the lazy nature of `Iter`, the elements in the list are processed in the order they were initially defined! This makes debugging easy.
